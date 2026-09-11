@@ -435,6 +435,14 @@
         <div class="intro-sketch" aria-hidden="true"><img data-src="images/intro/queens-building-sketch.webp" alt=""></div>
         <div class="intro-iris" aria-hidden="true"></div>
         <div class="intro-blackout" aria-hidden="true"></div>
+        <!-- Source-image coordinates keep the last lit window aligned at every size. -->
+        <svg class="intro-window" viewBox="0 0 1920 1257" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+                <radialGradient id="intro-window-halo"><stop stop-color="#d8ab67" stop-opacity=".18"/><stop offset="1" stop-color="#d8ab67" stop-opacity="0"/></radialGradient>
+            </defs>
+            <ellipse cx="956" cy="644" rx="27" ry="39" fill="url(#intro-window-halo)"/>
+            <path d="M947 620h7v20h-7zm11 0h8v20h-8zm-11 24h7v20h-7zm11 0h8v20h-8z" fill="#cda467" fill-opacity=".55"/>
+        </svg>
         <div class="intro-vignette" aria-hidden="true"></div>
         <!-- Change skip button text here; its visual styling is in intro.css. -->
         <button class="intro-skip" id="intro-skip" type="button">Skip intro</button>

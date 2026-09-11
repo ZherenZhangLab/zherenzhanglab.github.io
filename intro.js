@@ -25,6 +25,7 @@
     const sketchImage = sketch.querySelector('img');
     const iris = intro.querySelector('.intro-iris');
     const blackout = intro.querySelector('.intro-blackout');
+    const windowLight = intro.querySelector('.intro-window');
     const totalDuration = FULL_IMAGE_HOLD_MS + SURROUNDINGS_FADE_MS
         + BUILDING_HOLD_MS + BUILDING_FADE_MS;
     let stopped = false;
@@ -52,7 +53,14 @@
         // would restore the blackout's CSS opacity (0) and briefly reveal the photo.
         if (lockBlack) blackout.style.opacity = '1';
         frozenAnimations = intro.getAnimations({ subtree: true });
-        frozenAnimations.forEach(animation => animation.pause());
+        frozenAnimations.forEach(animation => {
+            // Timers can fire just ahead of the final animation frame. Settle the
+            // retained effects first; inline opacity cannot override a running effect.
+            if (lockBlack) animation.finish();
+            animation.pause();
+        });
+        // The decorative light must also retain a completely dark final frame.
+        if (lockBlack) windowLight.style.visibility = 'hidden';
 
         rememberIntro();
 
@@ -96,12 +104,27 @@
         // During the existing building-hold stage, the photograph resolves into an
         // aligned architectural drawing instead of switching via a CSS filter.
         sketch.animate([
-            { opacity: 0 },
-            { opacity: 1 }
+            { opacity: 0, maskPosition: '0 100%' },
+            { opacity: 0.7, maskPosition: '0 45%', offset: 0.55 },
+            { opacity: 1, maskPosition: '0 0%' }
         ], {
             delay: FULL_IMAGE_HOLD_MS + SURROUNDINGS_FADE_MS,
             duration: BUILDING_HOLD_MS,
             easing: 'cubic-bezier(0.45, 0, 0.22, 1)',
+            fill: 'both'
+        });
+
+        // Adjust the pane geometry in index.html; keep its fade within the existing
+        // building hold/blackout so the overall running time remains unchanged.
+        windowLight.animate([
+            { opacity: 0 },
+            { opacity: 0.6, offset: 0.35 },
+            { opacity: 0.48, offset: 0.72 },
+            { opacity: 0 }
+        ], {
+            delay: FULL_IMAGE_HOLD_MS + SURROUNDINGS_FADE_MS,
+            duration: BUILDING_HOLD_MS + BUILDING_FADE_MS,
+            easing: 'ease-in-out',
             fill: 'both'
         });
 
@@ -124,7 +147,8 @@
         if (event.key === 'Escape') finish();
     });
 
-    const ready = image.decode ? image.decode().catch(() => {}) : Promise.resolve();
+    const ready = Promise.all([image, sketchImage].map(asset =>
+        asset.decode ? asset.decode().catch(() => {}) : Promise.resolve()));
     ready.then(play);
 
     window.addEventListener('pagehide', () => {
