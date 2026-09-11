@@ -52,7 +52,10 @@ html.intro-active.intro-revealing body > :not(.site-intro):not(script) {
     display: block;
     object-fit: cover;
     object-position: center;
-    transform-origin: 0 0;
+    /* Balanced display crop: trim both edges by about 4.5% to exclude the
+       bottom-left shadow, keeping Queens' Building and its sketch centred. */
+    transform-origin: center;
+    transform: scale(1.1);
     backface-visibility: hidden;
     will-change: transform, filter;
 }
@@ -129,6 +132,12 @@ html.intro-active.intro-revealing body > :not(.site-intro):not(script) {
 }
 
 @media (max-width: 640px) {
+    /* Portrait cover framing already excludes the shadow; retain its field of view. */
+    .intro-scene img,
+    .intro-sketch img {
+        transform: none;
+    }
+
     .intro-iris {
         width: 235vw;
         height: 48vh;
