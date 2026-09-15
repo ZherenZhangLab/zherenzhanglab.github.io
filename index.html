@@ -34,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="research.css">
     <style>
         :root {
             --bg:        #0a0e14;
@@ -514,17 +515,48 @@
             </div>
             <div class="cards">
                 <div class="card">
-                    <div class="num">001</div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Rules of Microbial Division of Labour" aria-pressed="false" aria-describedby="research-discover-description" disabled>001</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- Similar founders branch into complementary specialists and exchange metabolites. -->
+                        <g><rect x="5" y="15" width="16" height="7" rx="3.5"/><rect x="26" y="24" width="16" height="7" rx="3.5"/><rect x="8" y="35" width="16" height="7" rx="3.5"/></g>
+                        <path class="research-flow research-dim" pathLength="1" d="M47 28H60Q70 28 78 16H98M60 28Q70 28 78 42H98"/>
+                        <g class="research-specialist"><rect x="106" y="8" width="19" height="8" rx="4"/><rect x="132" y="16" width="19" height="8" rx="4"/><rect x="162" y="7" width="19" height="8" rx="4"/></g>
+                        <g><rect x="108" y="39" width="19" height="8" rx="4"/><rect x="141" y="43" width="19" height="8" rx="4"/><rect x="175" y="36" width="19" height="8" rx="4"/></g>
+                        <path class="research-flow research-accent" style="--step: 350ms" pathLength="1" d="M119 21V32m-3-3 3 3 3-3M178 30V20m-3 3 3-3 3 3"/>
+                        <g class="research-accent research-fill"><circle cx="146" cy="32" r="1.5"/><circle cx="159" cy="30" r="1.5"/><circle cx="204" cy="22" r="1.5"/></g>
+                    </svg>
+                    <span class="research-description" id="research-discover-description">Discover: a similar microbial population differentiates into complementary specialised subpopulations that exchange metabolites.</span>
                     <h3>Rules of Microbial Division of Labour</h3>
                     <p>We investigate how and why division of labour emerges among microbes, and the conditions that favour cooperation over generalist strategies. Building on our work describing division-of-labour traits in nature, we now use synthetic biology to reshape these systems and probe their underlying principles.</p>
                 </div>
                 <div class="card">
-                    <div class="num">002</div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Division of Labour for Biotechnology" aria-pressed="false" aria-describedby="research-engineer-description" disabled>002</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- Engineered rods → intermediate → a distinct round population → product. -->
+                        <g class="research-accent research-fill"><rect x="5" y="16" width="18" height="8" rx="4"/><rect x="22" y="29" width="18" height="8" rx="4"/><rect x="4" y="38" width="18" height="8" rx="4"/></g>
+                        <path class="research-flow" pathLength="1" d="M46 28H72m-4-3 4 3-4 3"/>
+                        <path class="research-accent" d="m85 21 6 3.5v7L85 35l-6-3.5v-7Z"/>
+                        <path class="research-flow" style="--step: 300ms" pathLength="1" d="M98 28h24m-4-3 4 3-4 3"/>
+                        <g><circle cx="138" cy="20" r="6"/><circle cx="153" cy="30" r="6"/><circle cx="136" cy="40" r="6"/><path d="M136 20h4m-2-2v4M151 30h4m-2-2v4M134 40h4m-2-2v4"/></g>
+                        <path class="research-flow research-accent" style="--step: 450ms" pathLength="1" d="M167 28h21m-4-3 4 3-4 3"/>
+                        <g class="research-accent"><path d="M199 15h9m-7 0v9l-7 14q-1 3 3 3h13q4 0 3-3l-7-14v-9"/><path class="research-fill" d="M198 31h11l4 7q1 3-3 3h-13q-4 0-3-3Z"/></g>
+                    </svg>
+                    <span class="research-description" id="research-engineer-description">Engineer: microbial population A produces an intermediate used by a distinct population B to make a useful product.</span>
                     <h3>Division of Labour for Biotechnology</h3>
                     <p>Industrial bioprocesses rely on either single strains or multi-strain consortia, and each strategy carries its own limitations. Working with industrial partners, we apply evolutionary theory to understand and overcome these challenges in real-world production settings.</p>
                 </div>
                 <div class="card">
-                    <div class="num">003</div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: AI-Guided Design Meets Evolution" aria-pressed="false" aria-describedby="research-evolve-description" disabled>003</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- A molecular starting sequence branches into variants; only two persist. -->
+                        <path d="M4 29q5-14 10 0t10 0 10 0M7 24l5 9m8-2 5-7m5 0 4 7"/>
+                        <path class="research-flow research-dim" pathLength="1" d="M41 28h14M55 28Q64 7 76 7h13M55 28Q66 21 89 21M55 28Q66 35 89 35M55 28Q64 49 76 49h13"/>
+                        <g class="research-variant"><path d="M96 7h5l3-4 5 8 4-4h17M136 7h13"/></g>
+                        <g class="research-variant research-survivor research-accent"><path d="M96 21h9l3-4 5 8 4-4h13"/><path class="research-flow" style="--step: 400ms" pathLength="1" d="M137 21h29m-4-3 4 3-4 3"/><path d="M175 21h9l3-4 5 8 4-4h16"/></g>
+                        <g class="research-variant"><path d="M96 35h5l3 4 5-8 4 4h17M136 35h13"/></g>
+                        <g class="research-variant research-survivor research-accent"><path d="M96 49h5l3-4 5 8 4-4h17"/><path class="research-flow" style="--step: 450ms" pathLength="1" d="M137 49h29m-4-3 4 3-4 3"/><path d="M175 49h5l3-4 5 8 4-4h20"/></g>
+                    </svg>
+                    <span class="research-description" id="research-evolve-description">Design and evolve: a molecular sequence branches into designed variants, followed by selection; some variants fade while two persist.</span>
                     <h3>AI-Guided Design Meets Evolution</h3>
                     <p>We combine AI-guided molecular design with experimental and directed evolution to test long-standing questions in evolutionary biology. This lets us build tailored biological systems and use them as precise tools to probe how living systems adapt.</p>
                 </div>
@@ -684,6 +716,7 @@
     </footer>
 
     <script src="intro.js"></script>
+    <script src="research.js"></script>
 
 </body>
 </html>
