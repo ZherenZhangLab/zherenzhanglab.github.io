@@ -55,7 +55,7 @@
     top: calc(var(--node-y) - 22px);
     left: var(--node-x);
     transform: translateX(-50%);
-    width: 190px;
+    width: min(190px, 23%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,9 +67,10 @@
     transition: opacity 240ms ease;
 }
 #journey summary::-webkit-details-marker { display: none; }
-#journey li:nth-child(1) { --node-x: 20%; --node-y: 191.41px; }
-#journey li:nth-child(2) { --node-x: 50%; --node-y: 171.56px; }
-#journey li:nth-child(3) { --node-x: 80%; --node-y: 78.66px; }
+#journey li:nth-child(1) { --node-x: 12%; --node-y: 222.73px; }
+#journey li:nth-child(2) { --node-x: 37%; --node-y: 140.28px; }
+#journey li:nth-child(3) { --node-x: 63%; --node-y: 171.12px; }
+#journey li:nth-child(4) { --node-x: 88%; --node-y: 66.56px; }
 #journey .journey-node {
     position: relative;
     display: block;
