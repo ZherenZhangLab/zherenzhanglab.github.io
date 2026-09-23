@@ -1,0 +1,30 @@
+/* The original paragraph always supplies layout, selection and accessible text. */
+#home .hero-text-physics { position: relative; }
+#home .hero-text-physics.is-interacting { color: transparent; }
+#home .hero-text-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+}
+#home .hero-text-particle {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    transform-origin: center;
+}
+#home .hero-text-copy {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    /* Each small window shows part of the same naturally wrapped paragraph,
+       preserving native shaping/kerning instead of re-typesetting each word. */
+    font: inherit;
+    letter-spacing: inherit;
+    white-space: inherit;
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+    #home .hero-text-physics.is-interacting { color: var(--text-dim); }
+    #home .hero-text-layer { display: none; }
+}
