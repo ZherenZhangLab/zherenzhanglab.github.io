@@ -38,6 +38,10 @@
     <link rel="stylesheet" href="journey.css">
     <link rel="stylesheet" href="hero-text.css">
     <style>
+        /* Hallmark · checked: 2026-10-26 · genre: editorial (inferred)
+         * built: the project · redesign: polish · copy: verbatim · v2.0.0
+         * critique: repeated card borders compete with scientific content; scoped polish follows below.
+         * waive 38iii: the existing gold headline emphasis is the user's protected identity. */
         :root {
             --bg:        #0a0e14;
             --bg-soft:   #11161f;
@@ -47,6 +51,11 @@
             --text-dim:  #7c8a9e;
             --accent:    #eacd76;
             --accent-dim:#d3b17d;
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --font-quote: 'IBM Plex Mono', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', monospace;
+            --nav-glass: rgba(10, 14, 20, 0.85);
+            --accent-shadow: rgba(234, 205, 118, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,7 +65,7 @@
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-body);
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
         }
@@ -70,7 +79,7 @@
         }
 
         .mono {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.78rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -82,7 +91,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(10, 14, 20, 0.85);
+            background: var(--nav-glass);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
         }
@@ -129,7 +138,7 @@
         }
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr;
+            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
             gap: 50px;
             align-items: center;
         }
@@ -172,7 +181,7 @@
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(234, 205, 118, 0.25);
+            box-shadow: 0 8px 24px var(--accent-shadow);
         }
 
         /* ---------- SECTIONS ---------- */
@@ -213,7 +222,7 @@
         }
         .card:hover::before { opacity: 1; }
         .card .num {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.8rem;
             color: var(--accent);
             margin-bottom: 14px;
@@ -241,7 +250,7 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 24px;
         }
         .member {
@@ -258,7 +267,7 @@
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 1.4rem;
         }
         .avatar img {
@@ -279,7 +288,7 @@
             padding: 20px 24px;
         }
         .pub .venue {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.75rem;
             color: var(--accent);
             text-transform: uppercase;
@@ -291,7 +300,7 @@
         .pub-link {
             display: inline-block;
             margin-top: 10px;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.75rem;
             letter-spacing: 0.06em;
             color: var(--accent);
@@ -301,7 +310,7 @@
             border-radius: 4px;
             transition: background 0.2s ease;
         }
-        .pub-link:hover { background: var(--accent-dim); color: #fff; }
+        .pub-link:hover { background: var(--accent-dim); color: var(--bg); }
 
         /* ---------- TOOLS ---------- */
         .tool-card {
@@ -334,7 +343,7 @@
         }
         .video-link {
             display: inline-block;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.8rem;
             letter-spacing: 0.04em;
             color: var(--accent);
@@ -347,7 +356,7 @@
         }
         .video-link:hover {
             background: var(--accent-dim);
-            color: #fff;
+            color: var(--bg);
             transform: translateY(-2px);
         }
         .video-note {
@@ -385,13 +394,13 @@
             border-bottom: 1px solid var(--border);
         }
         .footer-quote .quote-cn {
-            font-family: 'IBM Plex Mono', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', monospace;
+            font-family: var(--font-quote);
             font-size: 0.85rem;
             letter-spacing: 0.02em;
             color: var(--text-dim);
         }
         .footer-quote .quote-source {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.75rem;
             letter-spacing: 0.02em;
             color: var(--text-dim);
@@ -402,10 +411,10 @@
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 860px) {
             nav .container { flex-wrap: wrap; gap: 12px 20px; }
-            .hero-grid { grid-template-columns: 1fr; }
+            .hero-grid { grid-template-columns: minmax(0, 1fr); }
             .hero-visual { max-width: 280px; }
             .cards { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             h1.hero-title { font-size: 2.2rem; }
             .nav-links { gap: 18px; }
         }
@@ -429,6 +438,7 @@
         .d2 { animation-delay: 0.15s; }
         .d3 { animation-delay: 0.25s; }
     </style>
+    <link rel="stylesheet" href="polish.css">
 </head>
 <body>
 
@@ -451,10 +461,11 @@
         <button class="intro-skip" id="intro-skip" type="button">Skip intro</button>
     </div>
 
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="container">
             <div class="logo">Zheren<span> Lab</span></div>
-            <div class="nav-links">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+            <div class="nav-links" id="main-navigation">
                 <a href="#home">Home</a>
                 <a href="#videos">Videos</a>
                 <a href="#research">Research</a>
@@ -493,8 +504,8 @@
     <section id="videos" class="alt">
         <div class="container">
             <div class="section-head">
-                <span class="mono">Research highlights</span>
                 <h2>The Story Behind the Paper</h2>
+                <span class="mono">Research highlights</span>
             </div>
             <div class="video-wrap">
                 <iframe src="https://www.youtube.com/embed/NAurEBm6OWM"
@@ -504,8 +515,8 @@
             </div>
             <p class="video-note">This video was AI-generated as an accessible summary. For accurate scientific detail, please read the original papers below.</p>
             <div class="video-links">
-                <a href="#pub-2022-meltdown" class="video-link">→ Read the paper: Nature Communications 2022</a>
-                <a href="#pub-2020-divisionoflabor" class="video-link">→ Read the paper: Science Advances 2020</a>
+                <a href="#pub-2022-meltdown" class="video-link">Read the paper: Nature Communications 2022</a>
+                <a href="#pub-2020-divisionoflabor" class="video-link">Read the paper: Science Advances 2020</a>
             </div>
         </div>
     </section>
@@ -513,12 +524,12 @@
     <section id="research">
         <div class="container">
             <div class="section-head">
-                <span class="mono">Focus areas</span>
                 <h2>Research Directions</h2>
+                <span class="mono">Focus areas</span>
             </div>
             <div class="cards">
                 <div class="card">
-                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Rules of Microbial Division of Labour" aria-pressed="false" aria-describedby="research-discover-description" disabled>001</button></div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Rules of Microbial Division of Labour" aria-pressed="false" aria-describedby="research-discover-description" disabled>Illustration</button></div>
                     <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
                         <!-- Similar founders branch into complementary specialists and exchange metabolites. -->
                         <g><rect x="5" y="15" width="16" height="7" rx="3.5"/><rect x="26" y="24" width="16" height="7" rx="3.5"/><rect x="8" y="35" width="16" height="7" rx="3.5"/></g>
@@ -537,7 +548,7 @@
                     <p>We investigate how and why division of labour emerges among microbes, and the conditions that favour cooperation over generalist strategies. Building on our work describing division-of-labour traits in nature, we now use synthetic biology to reshape these systems and probe their underlying principles.</p>
                 </div>
                 <div class="card">
-                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Division of Labour for Biotechnology" aria-pressed="false" aria-describedby="research-engineer-description" disabled>002</button></div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Division of Labour for Biotechnology" aria-pressed="false" aria-describedby="research-engineer-description" disabled>Illustration</button></div>
                     <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
                         <!-- Two complementary populations converge on one useful product. -->
                         <defs>
@@ -558,7 +569,7 @@
                     <p>Industrial bioprocesses rely on either single strains or multi-strain consortia, and each strategy carries its own limitations. Working with industrial partners, we apply evolutionary theory to understand and overcome these challenges in real-world production settings.</p>
                 </div>
                 <div class="card">
-                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: AI-Guided Design Meets Evolution" aria-pressed="false" aria-describedby="research-evolve-description" disabled>003</button></div>
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: AI-Guided Design Meets Evolution" aria-pressed="false" aria-describedby="research-evolve-description" disabled>Illustration</button></div>
                     <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
                         <!-- A molecular starting sequence branches into variants; only two persist. -->
                         <g><path d="M9 28h2m5 0h2m5 0h2m5 0h2"/><rect x="4" y="24" width="5" height="8" rx="1"/><rect x="11" y="24" width="5" height="8" rx="1"/><rect x="18" y="24" width="5" height="8" rx="1"/><rect x="25" y="24" width="5" height="8" rx="1"/><rect x="32" y="24" width="5" height="8" rx="1"/></g>
@@ -579,14 +590,13 @@
     <section id="tools" class="alt">
         <div class="container">
             <div class="section-head">
-                <span class="mono">Software</span>
                 <h2>Tools</h2>
+                <span class="mono">Software</span>
             </div>
             <div class="card tool-card">
-                <div class="num">001</div>
                 <h3>Growth Curve Analyser</h3>
                 <p>Analyse BMG LABTECH and Tecan i-control plate-reader data in your browser. Import measurements and plate metadata, apply blank correction, explore replicate-level curves, and estimate growth parameters without uploading experimental data.</p>
-                <a href="tools/growth-curve-analyser/" class="btn">Open Growth Curve Analyser →</a>
+                <a href="tools/growth-curve-analyser/" class="btn">Open Growth Curve Analyser</a>
             </div>
         </div>
     </section>
@@ -594,8 +604,8 @@
 <section id="team" class="alt">
         <div class="container">
             <div class="section-head">
-                <span class="mono">People</span>
                 <h2>Team</h2>
+                <span class="mono">People</span>
             </div>
             <div class="team-grid">
                 <div class="member">
@@ -633,76 +643,76 @@
     <section id="publications">
         <div class="container">
             <div class="section-head">
-                <span class="mono">Selected work</span>
                 <h2>Publications</h2>
+                <span class="mono">Selected work</span>
             </div>
             <div class="pub-list">
 
                 <div class="pub" id="pub-2026-pet">
-                    <div class="venue">Trends in Biotechnology · 2026</div>
+                    <div class="venue">Trends in Biotechnology <span class="venue-separator" aria-hidden="true">/</span> 2026</div>
                     <div class="title">Engineering environmental bacteria for whole-cell PET hydrolysis and assimilation</div>
                     <div class="authors">A. M. Banks, U. Abdulmutalib, B. Wain, C. Sonnendecker, H. Doherty, <strong>Z. Zhang</strong>, J. Kim, C. Bosomworth, S. Brown, R. Wei, C. Álvarez-Ortega, P. Pomposiello, C. Avignone-Rossa, G. Larrouy-Maumus, W. Zimmermann, J. I. Jiménez</div>
                     <a href="https://doi.org/10.1016/j.tibtech.2026.06.008" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2025-collateral">
-                    <div class="venue">bioRxiv · Preprint · 2025</div>
+                    <div class="venue">bioRxiv <span class="venue-separator" aria-hidden="true">/</span> Preprint <span class="venue-separator" aria-hidden="true">/</span> 2025</div>
                     <div class="title">Divergent spontaneous antibiotic-resistance evolution confers reciprocal and exploitable collateral sensitivity effects</div>
                     <div class="authors">A. Liakopoulos, S. T. Tandar, I. V. Hoogendijk, E. Fragkiskou, <strong>Z. Zhang</strong>, B. Vriesendorp, L. B. S. Aulin, J. G. C. van Hasselt, D. E. Rozen</div>
                     <a href="https://doi.org/10.1101/2025.09.22.677096" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2022-meltdown">
-                    <div class="venue">Nature Communications · 2022</div>
+                    <div class="venue">Nature Communications <span class="venue-separator" aria-hidden="true">/</span> 2022</div>
                     <div class="title">Mutational meltdown of putative microbial altruists in <em>Streptomyces coelicolor</em> colonies</div>
                     <div class="authors"><strong>Z. Zhang</strong>, S. Shitut, B. Claushuis, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.1038/s41467-022-29924-y" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2020-divisionoflabor">
-                    <div class="venue">Science Advances · 2020</div>
+                    <div class="venue">Science Advances <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
                     <div class="title">Antibiotic production in <em>Streptomyces</em> is organized by a division of labor through terminal genomic differentiation</div>
                     <div class="authors"><strong>Z. Zhang</strong>, C. Du, F. de Barsy, M. Liem, A. Liakopoulos, G. P. van Wezel, Y. H. Choi, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.1126/sciadv.aay5781" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2020-kitasatospora">
-                    <div class="venue">Antonie van Leeuwenhoek · 2020</div>
+                    <div class="venue">Antonie van Leeuwenhoek <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
                     <div class="title">Genome rearrangements and megaplasmid loss in the filamentous bacterium <em>Kitasatospora viridifaciens</em> are associated with protoplast formation and regeneration</div>
                     <div class="authors">K. Ramijan, <strong>Z. Zhang</strong>, G. P. van Wezel, D. Claessen</div>
                     <a href="https://doi.org/10.1007/s10482-020-01393-7" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2018-cellwalldeficient">
-                    <div class="venue">Nature Communications · 2018</div>
+                    <div class="venue">Nature Communications <span class="venue-separator" aria-hidden="true">/</span> 2018</div>
                     <div class="title">Stress-induced formation of cell wall-deficient cells in filamentous actinomycetes</div>
                     <div class="authors">K. Ramijan, E. Ultee, J. Willemse, <strong>Z. Zhang</strong>, J. A. J. Wondergem, A. van der Meij, D. Heinrich, A. Briegel, G. P. van Wezel, D. Claessen</div>
                     <a href="https://doi.org/10.1038/s41467-018-07560-9" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2017-nocostresistance">
-                    <div class="venue">The ISME Journal · 2017</div>
+                    <div class="venue">The ISME Journal <span class="venue-separator" aria-hidden="true">/</span> 2017</div>
                     <div class="title">The evolution of no-cost resistance at sub-MIC concentrations of streptomycin in <em>Streptomyces coelicolor</em></div>
                     <div class="authors">S. Westhoff, T. M. van Leeuwe, O. Qachach, <strong>Z. Zhang</strong>, G. P. van Wezel, D. E. Rozen</div>
                     <a href="https://doi.org/10.1038/ismej.2016.194" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2016-divisionsoflabor">
-                    <div class="venue">Frontiers in Microbiology · 2016</div>
+                    <div class="venue">Frontiers in Microbiology <span class="venue-separator" aria-hidden="true">/</span> 2016</div>
                     <div class="title">Understanding microbial divisions of labor</div>
                     <div class="authors"><strong>Z. Zhang</strong>, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.3389/fmicb.2016.02070" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2013-pigoatp">
-                    <div class="venue">Xenobiotica · 2013</div>
+                    <div class="venue">Xenobiotica <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
                     <div class="title">Cloning and functional characterization of the pig (<em>Sus scrofa</em>) organic anion transporting polypeptide 1a2</div>
                     <div class="authors">Y. Yu, X. Liu, <strong>Z. Zhang</strong>, Y. Xiao, M. Hong</div>
                     <a href="https://doi.org/10.3109/00498254.2012.760762" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2013-oatp1a2">
-                    <div class="venue">Drug Metabolism and Disposition · 2013</div>
+                    <div class="venue">Drug Metabolism and Disposition <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
                     <div class="title">Identification of multiple binding sites for substrate transport in bovine organic anion transporting polypeptide 1a2</div>
                     <div class="authors">X. Liu, J. Huang, Y. Sun, K. Zhan, <strong>Z. Zhang</strong>, M. Hong</div>
                     <a href="https://doi.org/10.1124/dmd.112.047910" target="_blank" rel="noopener" class="pub-link">DOI</a>
@@ -711,7 +721,7 @@
             </div>
 
             <div style="margin-top: 36px;">
-                <a href="https://scholar.google.com/citations?user=-axB_zoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn">View all on Google Scholar →</a>
+                <a href="https://scholar.google.com/citations?user=-axB_zoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn">View all on Google Scholar</a>
             </div>
         </div>
     </section>
@@ -850,6 +860,7 @@
     <script src="research.js"></script>
     <script src="journey.js"></script>
     <script src="hero-text.js"></script>
+    <script src="navigation.js"></script>
 
 </body>
 </html>
