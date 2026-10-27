@@ -1,7 +1,7 @@
 /* Full-site extension of the approved prototype. Hero and Research styles stay in prototype.css. */
 #research { background: var(--color-paper); }
 h1, h2, h3, .member .name, .pub .title { color: var(--text-primary); }
-:is(#research, #videos, #team, #publications, #journey, #tools) .section-head .mono { font: 400 16px/1.5 var(--font-display); color: var(--text-secondary); }
+:is(#research, #videos, #team, #opportunities, #publications, #journey, #tools) .section-head .mono { font: 400 16px/1.5 var(--font-display); color: var(--text-secondary); }
 main > section:not(#research) { padding-block: var(--space-3xl); }
 section:where(:not(#research):not(#journey)) .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-lg); margin-bottom: var(--space-xl); }
 section:where(:not(#research):not(#journey)) h2, #journey h2 { font-size: clamp(36px, 4.3vw, 60px); font-weight: 500; line-height: 1.1; letter-spacing: -.035em; }
@@ -55,6 +55,25 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 /* Shared size for secondary actions; primary contact and venue metadata keep their sizes. */
 #research .research-toggle, .video-link, .pub-link, #tools .btn, #publications .btn { font-size: 15px; }
 .pub:target { outline: 2px solid var(--color-accent); outline-offset: var(--space-xs); }
+
+/* Open recruitment entries use the existing editorial grid, type and neutral roles. */
+#opportunities { background: var(--color-paper); }
+.opportunity { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.65fr); gap: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.opportunity + .opportunity { margin-top: var(--space-xl); }
+.opportunity-meta { font: 400 16px/1.55 var(--font-display); color: var(--text-body); }
+.opportunity-kind { color: var(--text-primary); font-weight: 500; }
+.opportunity-status { color: var(--text-secondary); margin-top: var(--space-xs); }
+.opportunity-meta dl { margin: var(--space-lg) 0 0; }
+.opportunity-meta dt { margin-top: var(--space-md); color: var(--text-secondary); }
+.opportunity-meta dd { margin: var(--space-2xs) 0 0; }
+.opportunity-description h3 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.18; font-weight: 500; letter-spacing: -.025em; margin-bottom: var(--space-lg); }
+.opportunity-summary { font-size: 20px; line-height: 1.65; color: var(--text-body); max-width: 60ch; }
+.opportunity-eligibility { margin-top: var(--space-lg); font: 400 16px/1.55 var(--font-display); color: var(--text-secondary); }
+.opportunity-actions { display: flex; flex-wrap: wrap; gap: 0 24px; }
+/* Share the current Journey external-action treatment, without changing its appearance. */
+:is(#journey .journey-memory, #opportunities .opportunity-actions) a { display: inline-block; margin-top: 20px; padding: 0; border: 0; background: transparent; font: 400 14px/1.65 var(--font-display); color: var(--accent); text-decoration: none; text-underline-offset: auto; }
+:is(#journey .journey-memory, #opportunities .opportunity-actions) a:hover { color: var(--text-link-hover); text-decoration: underline; text-underline-offset: 4px; }
+#opportunities .opportunity[data-status="closed"] .opportunity-apply { display: none; }
 
 /* Warm light framing; existing tunnel geometry and motion remain in journey.css. */
 #journey { --bg: var(--color-paper); --journey-light: var(--color-accent); background: var(--color-paper); color: var(--text-primary); }
@@ -116,6 +135,8 @@ footer a:hover { color: var(--text-link-hover); }
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-xl); }
 }
 @media (max-width: 600px) {
+  .opportunity { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); padding-top: var(--space-lg); }
+  .opportunity-summary { font-size: 18px; }
   main > section:not(#research) { padding-block: var(--space-2xl); }
   section:where(:not(#research):not(#journey)) .section-head, #videos .section-head { display: block; margin-bottom: var(--space-lg); }
   section:where(:not(#research):not(#journey)) .section-head .mono { display: block; margin-top: var(--space-md); }
