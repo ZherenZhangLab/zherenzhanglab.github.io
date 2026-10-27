@@ -9,12 +9,15 @@
   --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
   --container: 1320px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(92% 0.008 165); --color-paper-2: oklch(88% 0.012 165); --color-paper-3: oklch(84% 0.014 165);
-  --color-ink: oklch(25% 0.024 310); --color-ink-2: oklch(34% 0.018 310); --color-muted: oklch(45% 0.016 310);
-  --color-rule: oklch(74% 0.012 310);
-  --color-accent: oklch(46% 0.09 45); --color-accent-ink: oklch(97% 0.008 165); --color-focus: oklch(46% 0.09 45);
-  --color-night: oklch(24% 0.026 310); --color-night-text: oklch(94% 0.008 165); --color-night-muted: oklch(78% 0.018 310);
-  --color-night-rule: oklch(40% 0.022 310); --color-copper: oklch(78% 0.085 55); --color-clear: transparent;
+  --color-paper: #f2eee4; --color-paper-2: #e8e2d5; --color-paper-3: #ddd4c2;
+  --color-ink: #242320; --color-ink-2: #414039; --color-muted: #666156;
+  --color-rule: #c2baaa;
+  /* Darker gold keeps controls readable on ivory; original gold remains on dark surfaces. */
+  --color-accent: #80631c; --color-accent-ink: #f2eee4; --color-focus: #80631c;
+  /* Match the unchanged scientific SVG background exactly, including its original gold. */
+  --color-night: #0a0e14; --color-night-text: #f2eee4; --color-night-muted: #c6c2b8;
+  --color-night-rule: #383a3d; --color-gold: #eacd76; --color-autumn: #d3b17d;
+  --color-copper: var(--color-gold); --color-clear: transparent; /* Existing selector compatibility. */
   --font-display: "Commissioner", ui-sans-serif, sans-serif; --font-body: "Source Serif 4", ui-serif, serif; --font-outlier: var(--font-display);
   --text-dim: var(--color-night-muted); --accent-dim: var(--color-accent); --accent: var(--color-accent);
   --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
