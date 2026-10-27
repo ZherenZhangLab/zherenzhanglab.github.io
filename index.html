@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zheren Zhang Lab | Synthetic & Evolutionary Biology | Queen Mary University of London</title>
-    <meta name="description" content="The Zheren Zhang Lab at Queen Mary University of London combines synthetic and evolutionary biology to study microbial division of labour, for both fundamental discovery and biotechnology.">
-    <meta name="keywords" content="Zheren Zhang, Zheren Zhang Lab, synthetic biology, evolutionary biology, division of labour, Streptomyces, directed evolution, Queen Mary University of London, QMUL, microbiology">
-    <meta name="author" content="Zheren Zhang">
-
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Zheren Zhang, Zheren Zhang Lab, synthetic biology, evolutionary biology, division of labour, Streptomyces, directed evolution, Queen Mary University of London, QMUL, microbiology">
+<meta name="author" content="Zheren Zhang">
+<meta property="og:title" content="Zheren Zhang Lab | Synthetic & Evolutionary Biology">
+<meta property="og:description" content="Combining synthetic and evolutionary biology to study microbial division of labour — for discovery and biotechnology.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zherenzhanglab.github.io">
+<meta name="description" content="The Zheren Zhang Lab at Queen Mary University of London combines synthetic and evolutionary biology to study microbial division of labour, for both fundamental discovery and biotechnology.">
+<title>Zheren Zhang Lab | Synthetic & Evolutionary Biology | Queen Mary University of London</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="research.css"><link rel="stylesheet" href="hero-text.css">
+<link rel="stylesheet" href="prototype.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="intro.css">
+<link rel="stylesheet" href="journey.css">
+<link rel="stylesheet" href="site.css">
     <!-- Intro visibility is decided before first paint to prevent a flash for returning visitors. -->
     <script>
         (() => {
@@ -23,425 +32,7 @@
             }
         })();
     </script>
-
-    <!-- Open Graph: controls how the link looks when shared on social media / messaging apps -->
-    <meta property="og:title" content="Zheren Zhang Lab | Synthetic & Evolutionary Biology">
-    <meta property="og:description" content="Combining synthetic and evolutionary biology to study microbial division of labour — for discovery and biotechnology.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zherenzhanglab.github.io">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="intro.css">
-    <link rel="stylesheet" href="research.css">
-    <link rel="stylesheet" href="journey.css">
-    <link rel="stylesheet" href="hero-text.css">
-    <style>
-        /* Hallmark · checked: 2026-10-26 · genre: editorial (inferred)
-         * built: the project · redesign: polish · copy: verbatim · v2.0.0
-         * critique: repeated card borders compete with scientific content; scoped polish follows below.
-         * waive 38iii: the existing gold headline emphasis is the user's protected identity. */
-        :root {
-            --bg:        #0a0e14;
-            --bg-soft:   #11161f;
-            --panel:     #141b26;
-            --border:    #1f2a38;
-            --text:      #d4dae3;
-            --text-dim:  #7c8a9e;
-            --accent:    #eacd76;
-            --accent-dim:#d3b17d;
-            --font-body: 'Space Grotesk', sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-            --font-quote: 'IBM Plex Mono', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', monospace;
-            --nav-glass: rgba(10, 14, 20, 0.85);
-            --accent-shadow: rgba(234, 205, 118, 0.25);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-body);
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 28px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .mono {
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        /* ---------- NAV ---------- */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: var(--nav-glass);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 18px;
-            padding-bottom: 18px;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 1.15rem;
-            letter-spacing: 0.02em;
-        }
-        .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* ---------- HERO ---------- */
-        header {
-            padding: 110px 0 90px;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        header::after {
-            content: "";
-            position: absolute;
-            top: -120px;
-            right: -120px;
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
-            opacity: 0.35;
-            filter: blur(40px);
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
-            gap: 50px;
-            align-items: center;
-        }
-        .hero-visual {
-            aspect-ratio: 1 / 1;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .hero-visual object {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .hero-tag { margin-bottom: 22px; display: inline-block; }
-        h1.hero-title {
-            font-size: 2.9rem;
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 22px;
-        }
-        h1.hero-title .glow { color: var(--accent); }
-        .hero-text {
-            color: var(--text-dim);
-            font-size: 1.08rem;
-            max-width: 540px;
-            margin-bottom: 34px;
-        }
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--bg);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 13px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: transform 0.15s ease, box-shadow 0.2s ease;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--accent-shadow);
-        }
-
-        /* ---------- SECTIONS ---------- */
-        section { padding: 88px 0; }
-        .section-head { margin-bottom: 48px; }
-        .section-head h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-top: 8px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        .card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 30px 26px;
-            transition: border-color 0.25s ease, transform 0.25s ease;
-            position: relative;
-        }
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 26px; right: 26px;
-            height: 2px;
-            background: var(--accent);
-            opacity: 0.4;
-            transition: opacity 0.25s ease;
-        }
-        .card:hover {
-            border-color: var(--accent-dim);
-            transform: translateY(-4px);
-        }
-        .card:hover::before { opacity: 1; }
-        .card .num {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 14px;
-        }
-        .card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        /* team + publications */
-        .alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
-
-        /* Major sections alternate strictly between the site's two existing tones,
-           Tone A (--bg) and Tone B (--bg-soft): header=A, videos=B (.alt), research=A,
-           tools=B (.alt), team=A, publications=B. #team and #publications need explicit
-           overrides here since #team already carries the shared .alt class (for its
-           border-block) but must render as Tone A, not Tone B. No third tone. */
-        #team { background: var(--bg); }
-        #publications { background: var(--bg-soft); }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 24px;
-        }
-        .member {
-            text-align: center;
-        }
-        .avatar {
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 14px;
-            border-radius: 50%;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 1.4rem;
-        }
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .member .name { font-weight: 600; font-size: 1rem; }
-        .member .role { color: var(--text-dim); font-size: 0.85rem; }
-
-        .pub-list { display: flex; flex-direction: column; gap: 14px; }
-        .pub {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-left: 2px solid var(--accent);
-            border-radius: 6px;
-            padding: 20px 24px;
-        }
-        .pub .venue {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-        .pub .title { font-weight: 600; margin: 6px 0 4px; }
-        .pub .authors { color: var(--text-dim); font-size: 0.88rem; }
-
-        .pub-link {
-            display: inline-block;
-            margin-top: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
-            color: var(--accent);
-            text-decoration: none;
-            border: 1px solid var(--accent-dim);
-            padding: 3px 10px;
-            border-radius: 4px;
-            transition: background 0.2s ease;
-        }
-        .pub-link:hover { background: var(--accent-dim); color: var(--bg); }
-
-        /* ---------- TOOLS ---------- */
-        .tool-card {
-            max-width: 720px;
-        }
-        .tool-card .btn {
-            margin-top: 22px;
-        }
-
-        /* ---------- VIDEO ---------- */
-        .video-wrap {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .video-wrap iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-        }
-        .video-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 24px;
-        }
-        .video-link {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.04em;
-            color: var(--accent);
-            text-decoration: none;
-            background: var(--panel);
-            border: 1px solid var(--accent-dim);
-            padding: 10px 16px;
-            border-radius: 6px;
-            transition: background 0.2s ease, transform 0.15s ease;
-        }
-        .video-link:hover {
-            background: var(--accent-dim);
-            color: var(--bg);
-            transform: translateY(-2px);
-        }
-        .video-note {
-            margin-top: 16px;
-            font-size: 0.82rem;
-            color: var(--text-dim);
-            font-style: italic;
-        }
-
-        /* highlight a publication when linked to */
-        .pub:target {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 1px var(--accent);
-        }
-
-        /* ---------- FOOTER ---------- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 44px 0;
-            background: var(--bg-soft);
-        }
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        footer p { color: var(--text-dim); font-size: 0.88rem; }
-        footer a { color: var(--accent); text-decoration: none; }
-        .footer-quote {
-            text-align: center;
-            padding-bottom: 28px;
-            margin-bottom: 28px;
-            border-bottom: 1px solid var(--border);
-        }
-        .footer-quote .quote-cn {
-            font-family: var(--font-quote);
-            font-size: 0.85rem;
-            letter-spacing: 0.02em;
-            color: var(--text-dim);
-        }
-        .footer-quote .quote-source {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.02em;
-            color: var(--text-dim);
-            opacity: 0.65;
-            margin-top: 6px;
-        }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 860px) {
-            nav .container { flex-wrap: wrap; gap: 12px 20px; }
-            .hero-grid { grid-template-columns: minmax(0, 1fr); }
-            .hero-visual { max-width: 280px; }
-            .cards { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            h1.hero-title { font-size: 2.2rem; }
-            .nav-links { gap: 18px; }
-        }
-
-        @media (max-width: 560px) {
-            nav .container { align-items: flex-start; }
-            .nav-links { gap: 8px 14px; flex-wrap: wrap; }
-            .nav-links a { font-size: 0.82rem; }
-        }
-
-        /* entrance animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            animation: rise 0.7s ease forwards;
-        }
-        @keyframes rise {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .d1 { animation-delay: 0.05s; }
-        .d2 { animation-delay: 0.15s; }
-        .d3 { animation-delay: 0.25s; }
-    </style>
-    <link rel="stylesheet" href="polish.css">
-</head>
-<body>
-
+</head><body>
     <!-- Opening sequence: independent of the homepage structure underneath. -->
     <div class="site-intro" id="site-intro" role="dialog" aria-label="Opening visual journey" aria-modal="true">
         <div class="intro-scene" data-intro-scene="1"><img data-src="images/intro/scene-1.webp" alt="Queen Mary University campus" fetchpriority="high"></div>
@@ -461,67 +52,40 @@
         <button class="intro-skip" id="intro-skip" type="button">Skip intro</button>
     </div>
 
-    <nav aria-label="Main navigation">
+
+<nav aria-label="Main navigation">
         <div class="container">
             <div class="logo">Zheren<span> Lab</span></div>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
             <div class="nav-links" id="main-navigation">
                 <a href="#home">Home</a>
-                <a href="#videos">Videos</a>
                 <a href="#research">Research</a>
-                <a href="#tools">Tools</a>
+                <a href="#videos">Videos</a>
                 <a href="#team">Team</a>
                 <a href="#publications">Publications</a>
                 <a href="#journey">Journey</a>
+                <a href="#tools">Tools</a>
             </div>
         </div>
     </nav>
-
-    <header id="home">
-        <div class="container hero-grid">
-            <div>
-                <span class="mono hero-tag reveal d1">Synthetic &amp; Evolutionary Biology</span>
-                <h1 class="hero-title reveal d2">
+<main>
+<header id="home"><div class="container">
+<h1 class="hero-title reveal d2">
                     Designing evolution for <span class="glow">discovery</span> and <span class="glow">biotechnology</span>.
                 </h1>
-                <p class="hero-text reveal d3">
+<span class="mono hero-tag reveal d1">Synthetic &amp; Evolutionary Biology</span>
+<div class="hero-spread"><div class="hero-copy"><p class="hero-text reveal d3">
                     Our lab combines synthetic and evolutionary biology to study both fundamental
                     and applied questions using microorganisms. We design biological systems with
                     state-of-the-art synthetic tools and pair them with experimental and directed
                     evolution — to understand why a given phenomenon arises, and how it can be
                     used to solve real-world problems.
-                </p>
-                <a href="mailto:zheren.zhang@qmul.ac.uk" class="btn reveal d3">Get in touch</a>
-            </div>
-            <div class="hero-visual reveal d3">
-                <object type="image/svg+xml" data="images/hero.svg" aria-label="From synthetic design to fundamental and applied questions">
+                </p><a href="mailto:zheren.zhang@qmul.ac.uk" class="btn reveal d3">Get in touch</a></div>
+<div class="hero-visual reveal d3"><object type="image/svg+xml" data="images/hero.svg" aria-label="From synthetic design to fundamental and applied questions">
                     <img src="images/hero.svg" alt="From synthetic design to fundamental and applied questions">
-                </object>
-            </div>
-        </div>
-    </header>
-
-    <section id="videos" class="alt">
-        <div class="container">
-            <div class="section-head">
-                <h2>The Story Behind the Paper</h2>
-                <span class="mono">Research highlights</span>
-            </div>
-            <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/NAurEBm6OWM"
-                        title="Research video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-            </div>
-            <p class="video-note">This video was AI-generated as an accessible summary. For accurate scientific detail, please read the original papers below.</p>
-            <div class="video-links">
-                <a href="#pub-2022-meltdown" class="video-link">Read the paper: Nature Communications 2022</a>
-                <a href="#pub-2020-divisionoflabor" class="video-link">Read the paper: Science Advances 2020</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="research">
+                </object></div></div>
+</div></header>
+<section id="research">
         <div class="container">
             <div class="section-head">
                 <h2>Research Directions</h2>
@@ -586,21 +150,25 @@
             </div>
         </div>
     </section>
-
-    <section id="tools" class="alt">
+<section id="videos" class="alt">
         <div class="container">
             <div class="section-head">
-                <h2>Tools</h2>
-                <span class="mono">Software</span>
+                <h2>The Story Behind the Paper</h2>
+                <span class="mono">Research highlights</span>
             </div>
-            <div class="card tool-card">
-                <h3>Growth Curve Analyser</h3>
-                <p>Analyse BMG LABTECH and Tecan i-control plate-reader data in your browser. Import measurements and plate metadata, apply blank correction, explore replicate-level curves, and estimate growth parameters without uploading experimental data.</p>
-                <a href="tools/growth-curve-analyser/" class="btn">Open Growth Curve Analyser</a>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/NAurEBm6OWM"
+                        title="Research video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <p class="video-note">This video was AI-generated as an accessible summary. For accurate scientific detail, please read the original papers below.</p>
+            <div class="video-links">
+                <a href="#pub-2022-meltdown" class="video-link">Read the paper: Nature Communications 2022</a>
+                <a href="#pub-2020-divisionoflabor" class="video-link">Read the paper: Science Advances 2020</a>
             </div>
         </div>
     </section>
-
 <section id="team" class="alt">
         <div class="container">
             <div class="section-head">
@@ -639,8 +207,7 @@
             </div>
         </div>
     </section>
-
-    <section id="publications">
+<section id="publications">
         <div class="container">
             <div class="section-head">
                 <h2>Publications</h2>
@@ -649,70 +216,70 @@
             <div class="pub-list">
 
                 <div class="pub" id="pub-2026-pet">
-                    <div class="venue">Trends in Biotechnology <span class="venue-separator" aria-hidden="true">/</span> 2026</div>
+                    <div class="venue"><span class="venue-name">Trends in Biotechnology</span> <span class="venue-separator" aria-hidden="true">/</span> 2026</div>
                     <div class="title">Engineering environmental bacteria for whole-cell PET hydrolysis and assimilation</div>
                     <div class="authors">A. M. Banks, U. Abdulmutalib, B. Wain, C. Sonnendecker, H. Doherty, <strong>Z. Zhang</strong>, J. Kim, C. Bosomworth, S. Brown, R. Wei, C. Álvarez-Ortega, P. Pomposiello, C. Avignone-Rossa, G. Larrouy-Maumus, W. Zimmermann, J. I. Jiménez</div>
                     <a href="https://doi.org/10.1016/j.tibtech.2026.06.008" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2025-collateral">
-                    <div class="venue">bioRxiv <span class="venue-separator" aria-hidden="true">/</span> Preprint <span class="venue-separator" aria-hidden="true">/</span> 2025</div>
+                    <div class="venue"><span class="venue-name">bioRxiv</span> <span class="venue-separator" aria-hidden="true">/</span> Preprint <span class="venue-separator" aria-hidden="true">/</span> 2025</div>
                     <div class="title">Divergent spontaneous antibiotic-resistance evolution confers reciprocal and exploitable collateral sensitivity effects</div>
                     <div class="authors">A. Liakopoulos, S. T. Tandar, I. V. Hoogendijk, E. Fragkiskou, <strong>Z. Zhang</strong>, B. Vriesendorp, L. B. S. Aulin, J. G. C. van Hasselt, D. E. Rozen</div>
                     <a href="https://doi.org/10.1101/2025.09.22.677096" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2022-meltdown">
-                    <div class="venue">Nature Communications <span class="venue-separator" aria-hidden="true">/</span> 2022</div>
+                    <div class="venue"><span class="venue-name">Nature Communications</span> <span class="venue-separator" aria-hidden="true">/</span> 2022</div>
                     <div class="title">Mutational meltdown of putative microbial altruists in <em>Streptomyces coelicolor</em> colonies</div>
                     <div class="authors"><strong>Z. Zhang</strong>, S. Shitut, B. Claushuis, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.1038/s41467-022-29924-y" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2020-divisionoflabor">
-                    <div class="venue">Science Advances <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
+                    <div class="venue"><span class="venue-name">Science Advances</span> <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
                     <div class="title">Antibiotic production in <em>Streptomyces</em> is organized by a division of labor through terminal genomic differentiation</div>
                     <div class="authors"><strong>Z. Zhang</strong>, C. Du, F. de Barsy, M. Liem, A. Liakopoulos, G. P. van Wezel, Y. H. Choi, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.1126/sciadv.aay5781" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2020-kitasatospora">
-                    <div class="venue">Antonie van Leeuwenhoek <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
+                    <div class="venue"><span class="venue-name">Antonie van Leeuwenhoek</span> <span class="venue-separator" aria-hidden="true">/</span> 2020</div>
                     <div class="title">Genome rearrangements and megaplasmid loss in the filamentous bacterium <em>Kitasatospora viridifaciens</em> are associated with protoplast formation and regeneration</div>
                     <div class="authors">K. Ramijan, <strong>Z. Zhang</strong>, G. P. van Wezel, D. Claessen</div>
                     <a href="https://doi.org/10.1007/s10482-020-01393-7" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2018-cellwalldeficient">
-                    <div class="venue">Nature Communications <span class="venue-separator" aria-hidden="true">/</span> 2018</div>
+                    <div class="venue"><span class="venue-name">Nature Communications</span> <span class="venue-separator" aria-hidden="true">/</span> 2018</div>
                     <div class="title">Stress-induced formation of cell wall-deficient cells in filamentous actinomycetes</div>
                     <div class="authors">K. Ramijan, E. Ultee, J. Willemse, <strong>Z. Zhang</strong>, J. A. J. Wondergem, A. van der Meij, D. Heinrich, A. Briegel, G. P. van Wezel, D. Claessen</div>
                     <a href="https://doi.org/10.1038/s41467-018-07560-9" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2017-nocostresistance">
-                    <div class="venue">The ISME Journal <span class="venue-separator" aria-hidden="true">/</span> 2017</div>
+                    <div class="venue"><span class="venue-name">The ISME Journal</span> <span class="venue-separator" aria-hidden="true">/</span> 2017</div>
                     <div class="title">The evolution of no-cost resistance at sub-MIC concentrations of streptomycin in <em>Streptomyces coelicolor</em></div>
                     <div class="authors">S. Westhoff, T. M. van Leeuwe, O. Qachach, <strong>Z. Zhang</strong>, G. P. van Wezel, D. E. Rozen</div>
                     <a href="https://doi.org/10.1038/ismej.2016.194" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2016-divisionsoflabor">
-                    <div class="venue">Frontiers in Microbiology <span class="venue-separator" aria-hidden="true">/</span> 2016</div>
+                    <div class="venue"><span class="venue-name">Frontiers in Microbiology</span> <span class="venue-separator" aria-hidden="true">/</span> 2016</div>
                     <div class="title">Understanding microbial divisions of labor</div>
                     <div class="authors"><strong>Z. Zhang</strong>, D. Claessen, D. E. Rozen</div>
                     <a href="https://doi.org/10.3389/fmicb.2016.02070" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2013-pigoatp">
-                    <div class="venue">Xenobiotica <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
+                    <div class="venue"><span class="venue-name">Xenobiotica</span> <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
                     <div class="title">Cloning and functional characterization of the pig (<em>Sus scrofa</em>) organic anion transporting polypeptide 1a2</div>
                     <div class="authors">Y. Yu, X. Liu, <strong>Z. Zhang</strong>, Y. Xiao, M. Hong</div>
                     <a href="https://doi.org/10.3109/00498254.2012.760762" target="_blank" rel="noopener" class="pub-link">DOI</a>
                 </div>
 
                 <div class="pub" id="pub-2013-oatp1a2">
-                    <div class="venue">Drug Metabolism and Disposition <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
+                    <div class="venue"><span class="venue-name">Drug Metabolism and Disposition</span> <span class="venue-separator" aria-hidden="true">/</span> 2013</div>
                     <div class="title">Identification of multiple binding sites for substrate transport in bovine organic anion transporting polypeptide 1a2</div>
                     <div class="authors">X. Liu, J. Huang, Y. Sun, K. Zhan, <strong>Z. Zhang</strong>, M. Hong</div>
                     <a href="https://doi.org/10.1124/dmd.112.047910" target="_blank" rel="noopener" class="pub-link">DOI</a>
@@ -725,8 +292,7 @@
             </div>
         </div>
     </section>
-
-    <section id="journey" aria-labelledby="journey-title">
+<section id="journey" aria-labelledby="journey-title">
         <div class="container">
             <div class="section-head">
                 <span class="mono">Milestones</span>
@@ -844,8 +410,21 @@
             <p class="journey-hint">Select a moment to explore.</p>
         </div>
     </section>
-
-    <footer>
+<section id="tools" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <h2>Tools</h2>
+                <span class="mono">Software</span>
+            </div>
+            <div class="card tool-card">
+                <h3>Growth Curve Analyser</h3>
+                <p>Analyse BMG LABTECH and Tecan i-control plate-reader data in your browser. Import measurements and plate metadata, apply blank correction, explore replicate-level curves, and estimate growth parameters without uploading experimental data.</p>
+                <a href="tools/growth-curve-analyser/" class="btn">Open Growth Curve Analyser</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
         <div class="container footer-quote">
             <p class="quote-cn">自古逢秋悲寂寥，我言秋日胜春朝。</p>
             <p class="quote-source">— Liu Yuxi, <em>Autumn Song</em> (秋词)</p>
@@ -855,12 +434,6 @@
             <p>Office: G.E. Fogg Building &amp; Room 4.34 · <a href="mailto:zheren.zhang@qmul.ac.uk">zheren.zhang@qmul.ac.uk</a></p>
         </div>
     </footer>
-
-    <script src="intro.js"></script>
-    <script src="research.js"></script>
-    <script src="journey.js"></script>
-    <script src="hero-text.js"></script>
-    <script src="navigation.js"></script>
-
-</body>
-</html>
+<script src="intro.js"></script><script src="journey.js"></script>
+<script src="hero-text.js"></script><script src="research.js"></script><script src="navigation.js"></script>
+</body></html>

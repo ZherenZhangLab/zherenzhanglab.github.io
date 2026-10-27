@@ -10,5 +10,13 @@ division of labour and beyond — for both fundamental discovery and biotechnolo
 
 ## Editing
 
-The entire site is a single file, `index.html`. To update content,
-edit that file and commit the changes — GitHub Pages will redeploy automatically.
+Homepage content lives in `index.html`. Its presentation uses `tokens.css`,
+`base.css`, `prototype.css` and `site.css`, alongside the existing styles and
+scripts for the opening sequence, Hero interaction, Research and Lab Journey.
+The Growth Curve Analyser remains in `tools/growth-curve-analyser/`.
+
+This is a static site with no build command. Preview locally from the repository
+root with `python3 -m http.server 4175 --bind 127.0.0.1`.
+
+`redesign-preview/` retains the approved comparison version. GitHub Pages publishes
+the repository root from `main`; committing to a redesign branch does not deploy it.
