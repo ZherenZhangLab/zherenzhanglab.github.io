@@ -3,6 +3,9 @@
 This directory is the complete static package intended for integration into a
 public website. Serve it over HTTP(S); no backend or build service is required.
 
+The website masthead uses Commissioner and the shared `../../tokens.css` file.
+The analysis workspace retains its own typography, palette and runtime.
+
 Included:
 
 - browser runtime files for import, plate mapping, correction, plotting and parameter analysis;

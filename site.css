@@ -52,6 +52,8 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 .pub .authors strong { font-weight: 600; color: var(--text-primary); }
 .pub-link { grid-column: 2; grid-row: 1 / span 3; align-self: start; justify-self: end; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: var(--text-link); font: 500 14px/1.5 var(--font-display); }
 .pub-link:hover { color: var(--text-link-hover); }
+/* Shared size for secondary actions; primary contact and venue metadata keep their sizes. */
+#research .research-toggle, .video-link, .pub-link, #tools .btn, #publications .btn { font-size: 15px; }
 .pub:target { outline: 2px solid var(--color-accent); outline-offset: var(--space-xs); }
 
 /* Warm light framing; existing tunnel geometry and motion remain in journey.css. */
