@@ -13,11 +13,16 @@
   --color-ink: #242320; --color-ink-2: #414039; --color-muted: #666156;
   --color-rule: #c2baaa;
   /* Darker gold keeps controls readable on ivory; original gold remains on dark surfaces. */
-  --color-accent: #80631c; --color-accent-ink: #f2eee4; --color-focus: #80631c;
+  --color-accent: #7d5d0c; --color-accent-ink: #f2eee4; --color-focus: var(--color-accent);
+  --color-accent-hover: color-mix(in srgb, var(--color-accent) 80%, var(--color-ink));
   /* Match the unchanged scientific SVG background exactly, including its original gold. */
   --color-night: #0a0e14; --color-night-text: #f2eee4; --color-night-muted: #c6c2b8;
   --color-night-rule: #383a3d; --color-gold: #eacd76; --color-autumn: #d3b17d;
   --color-copper: var(--color-gold); --color-clear: transparent; /* Existing selector compatibility. */
+  /* Semantic text roles: neutral hierarchy; gold is for links, controls and chosen highlights. */
+  --text-primary: var(--color-ink); --text-body: var(--color-ink-2);
+  --text-secondary: var(--color-muted); --text-link: var(--color-accent);
+  --text-highlight: var(--color-accent); --text-link-hover: var(--color-accent-hover);
   --font-display: "Commissioner", ui-sans-serif, sans-serif; --font-body: "Source Serif 4", ui-serif, serif; --font-outlier: var(--font-display);
   --text-dim: var(--color-night-muted); --accent-dim: var(--color-accent); --accent: var(--color-accent);
   --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
