@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="The Zheren Zhang Lab combines synthetic and evolutionary biology to study microbial division of labour, for both fundamental discovery and biotechnology.">
+<title>Zheren Lab — Living Systems Studio prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="source/research.css"><link rel="stylesheet" href="source/hero-text.css">
+<link rel="stylesheet" href="prototype.css">
+</head><body>
+<nav aria-label="Main navigation">
+        <div class="container">
+            <div class="logo">Zheren<span> Lab</span></div>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+            <div class="nav-links" id="main-navigation">
+                <a href="#home">Home</a>
+                <a href="https://zherenzhanglab.github.io/#videos">Videos</a>
+                <a href="#research">Research</a>
+                <a href="https://zherenzhanglab.github.io/#tools">Tools</a>
+                <a href="https://zherenzhanglab.github.io/#team">Team</a>
+                <a href="https://zherenzhanglab.github.io/#publications">Publications</a>
+                <a href="https://zherenzhanglab.github.io/#journey">Journey</a>
+            </div>
+        </div>
+    </nav>
+<main>
+<header id="home"><div class="container">
+<h1 class="hero-title reveal d2">
+                    Designing evolution for <span class="glow">discovery</span> and <span class="glow">biotechnology</span>.
+                </h1>
+<span class="mono hero-tag reveal d1">Synthetic &amp; Evolutionary Biology</span>
+<div class="hero-spread"><div class="hero-copy"><p class="hero-text reveal d3">
+                    Our lab combines synthetic and evolutionary biology to study both fundamental
+                    and applied questions using microorganisms. We design biological systems with
+                    state-of-the-art synthetic tools and pair them with experimental and directed
+                    evolution — to understand why a given phenomenon arises, and how it can be
+                    used to solve real-world problems.
+                </p><a href="mailto:zheren.zhang@qmul.ac.uk" class="btn reveal d3">Get in touch</a></div>
+<div class="hero-visual reveal d3"><object type="image/svg+xml" data="source/images/hero.svg" aria-label="From synthetic design to fundamental and applied questions">
+                    <img src="source/images/hero.svg" alt="From synthetic design to fundamental and applied questions">
+                </object></div></div>
+</div></header>
+<section id="research">
+        <div class="container">
+            <div class="section-head">
+                <h2>Research Directions</h2>
+                <span class="mono">Focus areas</span>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Rules of Microbial Division of Labour" aria-pressed="false" aria-describedby="research-discover-description" disabled>Illustration</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- Similar founders branch into complementary specialists and exchange metabolites. -->
+                        <g><rect x="5" y="15" width="16" height="7" rx="3.5"/><rect x="26" y="24" width="16" height="7" rx="3.5"/><rect x="8" y="35" width="16" height="7" rx="3.5"/></g>
+                        <path class="research-flow research-dim" pathLength="1" d="M47 28H60"/>
+                        <path class="research-flow research-accent" pathLength="1" d="M60 28Q70 28 78 16H98"/>
+                        <path class="research-flow" pathLength="1" d="M60 28Q70 28 78 42H98"/>
+                        <g class="research-specialist"><rect x="106" y="8" width="19" height="8" rx="4"/><rect x="132" y="16" width="19" height="8" rx="4"/><rect x="162" y="7" width="19" height="8" rx="4"/></g>
+                        <g><rect x="108" y="39" width="19" height="8" rx="4"/><rect x="141" y="43" width="19" height="8" rx="4"/><rect x="175" y="36" width="19" height="8" rx="4"/></g>
+                        <path class="research-flow research-accent" style="--step: 350ms" pathLength="1" d="M119 21V32m-3-3 3 3 3-3"/>
+                        <path class="research-flow" style="--step: 350ms" pathLength="1" d="M178 30V20m-3 3 3-3 3 3"/>
+                        <g class="research-accent research-fill"><circle cx="146" cy="32" r="1.5"/><circle cx="159" cy="30" r="1.5"/></g>
+                        <circle cx="204" cy="22" r="1.5" fill="var(--text-dim)" fill-opacity="0.18"/>
+                    </svg>
+                    <span class="research-description" id="research-discover-description">Discover: a similar microbial population differentiates into complementary specialised subpopulations that exchange metabolites.</span>
+                    <h3>Rules of Microbial Division of Labour</h3>
+                    <p>We investigate how and why division of labour emerges among microbes, and the conditions that favour cooperation over generalist strategies. Building on our work describing division-of-labour traits in nature, we now use synthetic biology to reshape these systems and probe their underlying principles.</p>
+                </div>
+                <div class="card">
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: Division of Labour for Biotechnology" aria-pressed="false" aria-describedby="research-engineer-description" disabled>Illustration</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- Two complementary populations converge on one useful product. -->
+                        <defs>
+                            <linearGradient id="research-shared-output" gradientUnits="userSpaceOnUse" x1="132" y1="28" x2="188" y2="28">
+                                <stop offset="0" stop-color="var(--text-dim)"/>
+                                <stop offset="1" stop-color="var(--accent-dim)"/>
+                            </linearGradient>
+                        </defs>
+                        <g class="research-accent research-fill"><rect x="7" y="8" width="19" height="8" rx="4"/><rect x="33" y="16" width="19" height="8" rx="4"/><rect x="61" y="7" width="19" height="8" rx="4"/></g>
+                        <g><rect x="9" y="39" width="19" height="8" rx="4"/><rect x="36" y="43" width="19" height="8" rx="4"/><rect x="63" y="36" width="19" height="8" rx="4"/></g>
+                        <path class="research-flow research-accent" pathLength="1" d="M89 16h21q12 0 22 12"/>
+                        <path class="research-flow" pathLength="1" d="M89 42h21q12 0 22-14"/>
+                        <path class="research-flow" stroke="url(#research-shared-output)" style="--step: 350ms" pathLength="1" d="M132 28h56m-4-3 4 3-4 3"/>
+                        <g class="research-accent"><path d="M199 15h9m-7 0v9l-7 14q-1 3 3 3h13q4 0 3-3l-7-14v-9"/><path class="research-fill" d="M198 31h11l4 7q1 3-3 3h-13q-4 0-3-3Z"/></g>
+                    </svg>
+                    <span class="research-description" id="research-engineer-description">Engineer: two complementary specialised microbial populations work together to produce one useful product.</span>
+                    <h3>Division of Labour for Biotechnology</h3>
+                    <p>Industrial bioprocesses rely on either single strains or multi-strain consortia, and each strategy carries its own limitations. Working with industrial partners, we apply evolutionary theory to understand and overcome these challenges in real-world production settings.</p>
+                </div>
+                <div class="card">
+                    <div class="num"><button class="research-toggle" type="button" aria-label="Scientific illustration: AI-Guided Design Meets Evolution" aria-pressed="false" aria-describedby="research-evolve-description" disabled>Illustration</button></div>
+                    <svg class="research-visual" viewBox="0 0 220 56" aria-hidden="true" focusable="false">
+                        <!-- A molecular starting sequence branches into variants; only two persist. -->
+                        <g><path d="M9 28h2m5 0h2m5 0h2m5 0h2"/><rect x="4" y="24" width="5" height="8" rx="1"/><rect x="11" y="24" width="5" height="8" rx="1"/><rect x="18" y="24" width="5" height="8" rx="1"/><rect x="25" y="24" width="5" height="8" rx="1"/><rect x="32" y="24" width="5" height="8" rx="1"/></g>
+                        <path class="research-flow research-dim" pathLength="1" d="M41 28h14M55 28Q64 7 76 7h13M55 28Q66 21 89 21M55 28Q66 35 89 35M55 28Q64 49 76 49h13"/>
+                        <g class="research-variant"><path d="M96 7h5l3-4 5 8 4-4h17M136 7h13"/></g>
+                        <g class="research-variant research-survivor research-accent"><path d="M96 21h9l3-4 5 8 4-4h13"/><path class="research-flow" style="--step: 400ms" pathLength="1" d="M137 21h29m-4-3 4 3-4 3"/><path d="M175 21h9l3-4 5 8 4-4h16"/></g>
+                        <g class="research-variant"><path d="M96 35h5l3 4 5-8 4 4h17M136 35h13"/></g>
+                        <g class="research-variant research-survivor research-accent"><path d="M96 49h5l3-4 5 8 4-4h17"/><path class="research-flow" style="--step: 450ms" pathLength="1" d="M137 49h29m-4-3 4 3-4 3"/><path d="M175 49h5l3-4 5 8 4-4h20"/></g>
+                    </svg>
+                    <span class="research-description" id="research-evolve-description">Design and evolve: a molecular sequence branches into designed variants, followed by selection; some variants fade while two persist.</span>
+                    <h3>AI-Guided Design Meets Evolution</h3>
+                    <p>We combine AI-guided molecular design with experimental and directed evolution to test long-standing questions in evolutionary biology. This lets us build tailored biological systems and use them as precise tools to probe how living systems adapt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="source/hero-text.js"></script><script src="source/research.js"></script><script src="source/navigation.js"></script>
+</body></html>
