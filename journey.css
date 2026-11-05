@@ -71,6 +71,14 @@
 #journey li:nth-child(2) { --node-x: 37%; --node-y: 140.28px; }
 #journey li:nth-child(3) { --node-x: 63%; --node-y: 171.12px; }
 #journey li:nth-child(4) { --node-x: 88%; --node-y: 66.56px; }
+/* Rebalance only the expanded five-entry timeline; keep the frozen preview intact. */
+@media (min-width: 761px) {
+    #journey .journey-milestones:has([data-milestone-id="first-electrophoresis-picture"]) summary { width: min(180px, 19%); }
+}
+#journey .journey-milestones:has([data-milestone-id="first-electrophoresis-picture"]) li:nth-child(2) { --node-x: 31%; --node-y: 146.87px; }
+#journey .journey-milestones:has([data-milestone-id="first-electrophoresis-picture"]) li:nth-child(3) { --node-x: 50%; --node-y: 171.56px; }
+#journey .journey-milestones:has([data-milestone-id="first-electrophoresis-picture"]) li:nth-child(4) { --node-x: 69%; --node-y: 132.42px; }
+#journey .journey-milestones:has([data-milestone-id="first-electrophoresis-picture"]) li:nth-child(5) { --node-x: 88%; --node-y: 66.56px; }
 #journey .journey-node {
     position: relative;
     display: block;

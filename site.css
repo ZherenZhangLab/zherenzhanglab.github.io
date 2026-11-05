@@ -98,7 +98,7 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 #journey .journey-filaments { filter: drop-shadow(0 5px 6px #6b4e252e); }
 #journey .journey-stream-narrow > g { stroke: var(--color-accent); }
 #journey .journey-haze { stroke: #987126; }
-#journey .journey-current { stroke: #9a6c13; }
+#journey .journey-current { stroke: var(--color-gold); }
 #journey .journey-label { color: var(--text-body); }
 #journey .journey-node::before { background: #987126; border-color: var(--color-paper); box-shadow: 0 0 14px #b78b4285, 0 0 35px #8f6a2a40; }
 #journey .journey-node::after { border-color: #80631c50; }
@@ -113,6 +113,9 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 #journey .journey-memory a:hover { color: var(--text-link-hover); }
 #journey .journey-memory p { color: var(--text-body); }
 #journey .journey-close { color: var(--text-secondary); }
+#journey .journey-photo { margin-top: var(--space-lg); max-width: 400px; }
+#journey .journey-photo img { display: block; width: 100%; height: auto; }
+#journey .journey-photo figcaption { margin-top: var(--space-sm); font: 400 14px/1.55 var(--font-display); color: var(--text-secondary); }
 
 footer { padding-block: var(--space-2xl); background: var(--color-paper); color: var(--text-secondary); border-top: 1px solid var(--color-rule); }
 footer .footer-quote { padding-bottom: var(--space-xl); margin-bottom: var(--space-xl); border-bottom: 1px solid var(--color-rule); }

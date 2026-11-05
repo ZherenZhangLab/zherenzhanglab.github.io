@@ -18,5 +18,6 @@ The Growth Curve Analyser remains in `tools/growth-curve-analyser/`.
 This is a static site with no build command. Preview locally from the repository
 root with `python3 -m http.server 4175 --bind 127.0.0.1`.
 
-`redesign-preview/` retains the approved comparison version. GitHub Pages publishes
-the repository root from `main`; committing to a redesign branch does not deploy it.
+GitHub Pages publishes the repository root from `main`; committing to a redesign
+branch does not deploy it. Superseded preview files have been removed from the
+current website tree; earlier versions remain recoverable from Git history.
