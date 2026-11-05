@@ -98,7 +98,14 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 #journey .journey-filaments { filter: drop-shadow(0 5px 6px #6b4e252e); }
 #journey .journey-stream-narrow > g { stroke: var(--color-accent); }
 #journey .journey-haze { stroke: #987126; }
-#journey .journey-current { stroke: var(--color-gold); }
+#journey .journey-current { stroke: var(--color-gold); stroke-width: 3; filter: drop-shadow(0 0 1px var(--color-accent)); }
+#journey.journey-in-view .journey-current { animation-name: journey-gold-drift; animation-delay: -4s; }
+/* Pale gold needs a stronger peak on paper; retain the original path and 18s cycle. */
+@keyframes journey-gold-drift {
+  0% { stroke-dashoffset: 80; opacity: 0; }
+  12%, 80% { opacity: .95; }
+  100% { stroke-dashoffset: -1000; opacity: 0; }
+}
 #journey .journey-label { color: var(--text-body); }
 #journey .journey-node::before { background: #987126; border-color: var(--color-paper); box-shadow: 0 0 14px #b78b4285, 0 0 35px #8f6a2a40; }
 #journey .journey-node::after { border-color: #80631c50; }
