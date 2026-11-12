@@ -20,11 +20,12 @@ section:where(:not(#research):not(#journey)) a:focus-visible, footer a:focus-vis
 .video-link { display: inline-flex; align-items: center; min-height: 44px; padding-block: var(--space-xs); font: 400 14px/1.5 var(--font-display); color: var(--text-link); }
 .video-link:hover { color: var(--text-link-hover); }
 
-/* A single useful resource, presented as an open entry rather than a feature card. */
+/* Useful resources, presented as open entries rather than feature cards. */
 #tools { background: var(--color-paper-2); }
 #tools > .container { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.65fr); gap: var(--space-2xl); }
 #tools .section-head { display: block; margin: 0; }
 #tools .section-head .mono { display: block; margin-top: var(--space-md); }
+#tools .tool-card + .tool-card { margin-top: var(--space-2xl); }
 #tools .tool-card h3 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.18; font-weight: 500; letter-spacing: -.025em; margin-bottom: var(--space-lg); }
 #tools .tool-card p { font-size: 20px; line-height: 1.65; color: var(--text-body); max-width: 60ch; }
 #tools .btn, #publications .btn { background: transparent; color: var(--text-link); padding: var(--space-xs) 0; justify-content: start; text-decoration: underline; }

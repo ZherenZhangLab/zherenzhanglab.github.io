@@ -1,0 +1,36 @@
+/* Website adapter; standalone fallbacks remain below. */
+@import url('../../tokens.css');
+
+/* Website reference: zherenzhanglab.github.io at bea89c8; analyser styling at 3ecc71d.
+   Local fallbacks keep the package standalone. A future website integration may
+   import shared tokens above this block; no other checkout is needed at runtime. */
+:root {
+  --plb-bg: var(--color-night, #0a0e14);
+  --plb-panel: #141b26;
+  --plb-surface: #101720;
+  --plb-well: #111b27;
+  --plb-border: #1f2a38;
+  --plb-well-border: #3a4b60;
+  --plb-text: #d4dae3;
+  --plb-muted: #7c8a9e;
+  --plb-gold: var(--color-gold, #eacd76);
+  --plb-autumn: var(--color-autumn, #d3b17d);
+  --plb-night-text: var(--color-night-text, #f2eee4);
+  --plb-night-muted: var(--color-night-muted, #c6c2b8);
+  --plb-sample: #4fd1c5;
+  --plb-blank: #e8c66a;
+  --plb-control: #a98df0;
+  --plb-unused: #657386;
+  --plb-warning: #d6824f;
+  --plb-overlay: rgb(0 0 0 / 72%);
+  --plb-shadow: rgb(0 0 0 / 20%);
+  --plb-focus-halo: rgb(234 205 118 / 16%);
+  --plb-font: "Space Grotesk", ui-sans-serif, sans-serif;
+  --plb-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --plb-masthead-font: var(--font-display, "Commissioner", ui-sans-serif, sans-serif);
+  --plb-container: 1080px;
+  --plb-site-container: var(--container, 1320px);
+  --plb-site-gutter: var(--gutter, 64px);
+  --plb-radius: 10px;
+  color-scheme: dark;
+}

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Define experimental groups and assign well metadata in a private, browser-local plate layout workspace.">
+  <title>Plate Layout Builder | Zheren Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./bench.css">
+  <script defer src="./vendor/exceljs-4.4.0.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body class="plb-app">
+  <a class="plb-skip-link" href="#main">Skip to plate workspace</a>
+  <nav class="plb-masthead" aria-label="Lab website">
+    <div class="plb-masthead-inner">
+      <a class="plb-brand" href="/">Zheren Lab</a>
+      <span class="plb-context">Tools / Plate Layout Builder</span>
+    </div>
+  </nav>
+  <main id="main" class="plb-container" tabindex="-1">
+    <div id="workspace-content">
+    <header class="plb-header">
+      <h1>Plate Layout <span>Builder</span></h1>
+      <p>Define groups, then place replicates manually or preview an automatic layout.</p>
+    </header>
+    <noscript><p class="plb-noscript">Enable JavaScript to use the interactive plate map. No file upload is required.</p></noscript>
+    <section class="plb-panel" aria-labelledby="plate-heading">
+      <div class="plb-setup">
+        <div class="plb-plate-control">
+          <label for="plate-size">Plate type</label>
+          <select id="plate-size" aria-describedby="plate-geometry" disabled>
+            <option value="24">24-well (A1–D6)</option>
+            <option value="48">48-well (A1–F8)</option>
+            <option value="96" selected>96-well (A1–H12)</option>
+            <option value="384">384-well (A1–P24)</option>
+          </select>
+        </div>
+        <p id="plate-geometry" class="plb-geometry"><strong>8 rows × 12 columns</strong><br>A1 at top left</p>
+      </div>
+      <section class="plb-auto-layout" aria-labelledby="automatic-heading">
+        <div class="plb-auto-controls">
+          <div><h2 id="automatic-heading">Layout strategy</h2><label class="plb-sr-only" for="layout-strategy">Layout strategy</label>
+            <select id="layout-strategy" aria-describedby="automatic-guidance" disabled><option>Manual</option><option>Compact</option><option>Avoid outer wells</option><option>Use outer wells for blanks</option></select>
+          </div>
+          <div class="plb-actions"><button class="plb-button plb-button-primary" id="preview-automatic" type="button" disabled>Preview automatic layout</button>
+            <button class="plb-button" id="mark-remaining-unused" type="button" disabled>Mark remaining wells unused</button></div>
+        </div>
+        <p id="automatic-guidance" class="plb-form-note">Manual keeps placement in the group editor.</p>
+        <label class="plb-checkbox"><input id="replan-selection" type="checkbox" disabled>Replan selected occupied wells (clear and reuse)</label>
+        <p id="automatic-targets" class="plb-form-note"></p>
+        <p class="plb-form-note">Uses saved groups only. Placement strategies are convenience features. They do not perform randomisation, statistical experimental design or scientific optimisation.</p>
+        <p id="automatic-message" class="plb-editor-message" role="alert"></p>
+      </section>
+      <div class="plb-map-heading">
+        <div><h2 id="plate-heading">Plate map</h2><p><span id="selection-count">0 wells selected</span> / <span id="assignment-count">96 unassigned</span></p></div>
+        <div class="plb-actions">
+          <button class="plb-button" id="focus-assignment" type="button" disabled>Assign selection</button>
+          <button class="plb-button" id="undo-change" type="button" disabled>Undo last change</button>
+          <button class="plb-button" id="select-all" type="button" disabled>Select all</button>
+          <button class="plb-button" id="clear-selection" type="button" disabled>Clear selection</button>
+        </div>
+      </div>
+      <div class="plb-workspace">
+        <div class="plb-map">
+          <div class="plb-plate-scroll">
+            <table id="plate-grid" class="plb-plate-grid" role="grid" aria-label="96-well plate map" aria-multiselectable="true" aria-describedby="keyboard-help" data-size="96"></table>
+          </div>
+          <ul class="plb-legend" aria-label="Well role legend">
+            <li><i class="plb-role" aria-hidden="true"></i>Unassigned</li>
+            <li><i class="plb-role plb-role-sample" aria-hidden="true"></i>Sample (S)</li>
+            <li><i class="plb-role plb-role-blank" aria-hidden="true"></i>Blank (B)</li>
+            <li><i class="plb-role plb-role-control" aria-hidden="true"></i>Control (C)</li>
+            <li><i class="plb-role plb-role-unused" aria-hidden="true"></i>Unused (U)</li>
+          </ul>
+          <p id="manual-key" class="plb-form-note" hidden>* Manually edited well; preserved during group updates by default.</p>
+          <section class="plb-group-summary" aria-labelledby="groups-heading">
+            <h2 id="groups-heading">Experimental groups</h2>
+            <ol id="group-list" class="plb-group-list"><li>No groups defined yet.</li></ol>
+          </section>
+          <details class="plb-review-table">
+            <summary>Review assigned metadata (<span id="assigned-row-count">0</span> wells)</summary>
+            <div class="plb-table-scroll"><table><thead><tr><th>Well</th><th>Strain</th><th>Condition</th><th>Replicate</th><th>Role</th><th>Blank group</th></tr></thead><tbody id="metadata-rows"></tbody></table></div>
+          </details>
+          <details class="plb-plan-checks" open>
+            <summary>Plan checks (<span id="warning-count">0</span>)</summary>
+            <ul id="plan-warnings"></ul>
+            <p id="no-warnings">No planned blank-link or grouping warnings.</p>
+          </details>
+        </div>
+        <div class="plb-sidebar">
+          <section class="plb-group-editor" aria-labelledby="group-editor-heading">
+            <h2 id="group-editor-heading">Assign selected wells</h2>
+            <label for="group-picker">Experimental group</label>
+            <select id="group-picker" disabled><option value="new">New group</option></select>
+            <form id="group-form">
+              <fieldset id="group-fields" disabled>
+                <label>Group label (optional)<input name="name" autocomplete="off"></label>
+                <label>Strain<input name="strain" autocomplete="off"></label>
+                <label>Condition<input name="condition" autocomplete="off"></label>
+                <div class="plb-form-pair">
+                  <label>Role<select name="role"><option value="sample">Sample</option><option value="control">Control</option><option value="blank">Blank</option><option value="unused">Unused</option></select></label>
+                  <label><span id="group-count-label">Replicates</span><input name="count" type="number" min="1" max="96" step="1" value="3" required></label>
+                </div>
+                <label>Blank group<input name="blank_group" list="blank-groups" autocomplete="off"></label>
+                <label class="plb-checkbox" id="replace-overrides-label" hidden><input name="replace_overrides" type="checkbox">Replace manual overrides when updating this group</label>
+                <button class="plb-button" id="save-group" type="submit">Save group</button>
+              </fieldset>
+            </form>
+            <p id="group-counts" class="plb-form-note"></p>
+            <p id="assignment-readiness" class="plb-form-note">Save a group, then select its replicate wells.</p>
+            <button class="plb-button plb-button-primary" id="preview-assignment" type="button" disabled>Preview assignment</button>
+            <div class="plb-actions plb-group-actions" id="saved-group-actions" hidden>
+              <button class="plb-button" id="group-up" type="button">Move up</button><button class="plb-button" id="group-down" type="button">Move down</button>
+              <button class="plb-button" id="delete-group" type="button">Delete group</button>
+            </div>
+            <label id="delete-mode-label" class="plb-delete-mode" hidden>When deleting<select id="delete-mode"><option value="detach">Keep wells as individual assignments</option><option value="clear">Clear this group's well metadata</option></select></label>
+            <p id="editor-message" class="plb-editor-message" role="alert"></p>
+          </section>
+        <aside class="plb-details" aria-labelledby="details-heading">
+          <h2 id="details-heading">Well details</h2>
+          <div class="plb-current-well"><strong id="active-well">A1</strong><span id="well-position">Perimeter well</span></div>
+          <dl class="plb-metadata">
+            <div><dt>Strain</dt><dd id="detail-strain">—</dd></div>
+            <div><dt>Condition</dt><dd id="detail-condition">—</dd></div>
+            <div><dt>Replicate</dt><dd id="detail-replicate_id">—</dd></div>
+            <div><dt>Role</dt><dd id="detail-role">Unassigned</dd></div>
+            <div><dt>Blank group</dt><dd id="detail-blank_group">—</dd></div>
+          </dl>
+          <p id="well-provenance" class="plb-form-note"></p>
+          <button class="plb-button" id="edit-well" type="button" disabled>Edit this well</button>
+          <div class="plb-selection-details">
+            <p class="plb-selected-heading">Selected wells</p>
+            <p class="plb-selected-list" id="selected-wells">No wells selected.</p>
+          </div>
+          <div class="plb-actions plb-well-actions">
+            <button class="plb-button" id="bulk-edit" type="button" disabled>Edit selected fields</button>
+            <button class="plb-button" id="clear-metadata" type="button" disabled>Clear metadata</button>
+            <button class="plb-button" id="mark-unused" type="button" disabled>Mark unused</button>
+          </div>
+        </aside>
+        </div>
+      </div>
+      <details class="plb-help">
+        <summary>Selection guide</summary>
+        <p>Click a well, or drag across wells to select them. Hold Shift, Command or Ctrl to add wells; a modified click toggles a well. Row and column labels select the whole row or column. On touchscreens, tap wells and swipe to scroll the plate.</p>
+        <p id="keyboard-help">Keyboard: arrows move focus. Space toggles the focused well; Enter selects it. Shift, Command or Ctrl with Enter adds or removes it. Home/End moves to the row ends; Command/Ctrl with Home/End moves to the plate ends. Command/Ctrl+A selects all; Escape clears selection.</p>
+      </details>
+      <section class="plb-output-controls" aria-labelledby="output-heading">
+        <h2 id="output-heading">Export / Bench view</h2>
+        <label for="plate-name">Plate name (optional)<input id="plate-name" maxlength="120" autocomplete="off" placeholder="Plate layout"></label>
+        <div class="plb-actions">
+          <button class="plb-button plb-button-primary" id="output-xlsx" type="button" disabled>Download metadata (.xlsx)</button>
+          <button class="plb-button" id="output-csv" type="button" disabled>Download metadata (.csv)</button>
+          <button class="plb-button" id="output-bench" type="button" disabled>Bench view</button>
+        </div>
+        <p class="plb-form-note">Export the complete plate, one row per well. Select the matching plate size in Growth Curve Analyser before importing. Bench view opens a white-paper layout for Print / Save as PDF.</p>
+      </section>
+    </section>
+    <p class="plb-local-note">Your layout stays in this browser session. Refreshing closes the current workspace.</p>
+    </div>
+    <section id="bench-view" aria-label="Printable bench plate layout" hidden>
+      <div class="plb-bench-toolbar">
+        <button class="plb-button" id="bench-back" type="button">Back to editing</button>
+        <button class="plb-button plb-button-primary" id="bench-print" type="button">Print / Save as PDF</button>
+        <p>A4 landscape at 100% scale. Turn off browser headers/footers. The 384-well map uses two row bands; long assignment keys continue on extra pages. Letter/line patterns remain readable in grayscale.</p>
+      </div>
+      <div id="bench-pages" class="plb-bench-pages"></div>
+    </section>
+    <p class="plb-print-help">Open Bench view, review the current plate, then choose Print / Save as PDF.</p>
+    <p id="status" class="plb-sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+  </main>
+  <datalist id="blank-groups"></datalist>
+  <dialog class="plb-dialog" id="output-dialog" aria-labelledby="output-title" aria-describedby="output-summary">
+    <h2 id="output-title">Review output</h2><p id="output-summary"></p>
+    <p>The metadata contains exactly well, strain, condition, replicate_id, role, blank_group in that order. Every plate well is included; well-only rows clear existing metadata on analyser import. Planning codes are not exported.</p>
+    <ul id="output-errors" class="plb-form-error"></ul>
+    <ul id="output-warnings"></ul>
+    <label class="plb-checkbox" id="output-ack-label"><input id="acknowledge-output" type="checkbox">I have reviewed these warnings and the full-plate replacement behaviour.</label>
+    <p id="output-error" role="alert"></p>
+    <div class="plb-actions"><button class="plb-button" id="cancel-output" type="button" autofocus>Cancel</button><button class="plb-button plb-button-primary" id="confirm-output" type="button">Continue</button></div>
+  </dialog>
+  <dialog class="plb-dialog plb-change-dialog" id="change-dialog" aria-labelledby="change-title" aria-describedby="change-summary">
+    <h2 id="change-title">Review changes</h2><p id="change-summary"></p><p id="preserved-note"></p>
+    <section id="automatic-review" aria-label="Automatic layout review" hidden>
+      <p id="automatic-capacity"></p><p id="automatic-order"></p><p id="automatic-roles"></p>
+      <div class="plb-table-scroll plb-capacity-table"><table><thead><tr><th>Group</th><th>Role</th><th>Requested</th><th>Kept</th><th>To place</th><th>Fits</th><th>Shortfall</th></tr></thead><tbody id="automatic-capacity-rows"></tbody></table></div>
+      <p id="automatic-existing"></p>
+      <div id="automatic-map-panel">
+        <p id="automatic-map-help">Preview only. Select a well to inspect current and proposed metadata.</p>
+        <div class="plb-plate-scroll"><table id="layout-preview-grid" class="plb-plate-grid" role="grid" aria-label="Proposed plate layout" aria-multiselectable="true" aria-describedby="automatic-map-help"></table></div>
+        <ul class="plb-preview-legend" aria-label="Preview change legend"><li>Kept: plain border</li><li>New: dashed border</li><li>Replaced: double outline</li><li>Cleared: dotted outline</li></ul>
+        <p id="layout-preview-detail" class="plb-preview-detail" aria-live="polite"></p>
+      </div>
+      <ul id="automatic-spills" class="plb-spill-list"></ul>
+    </section>
+    <div class="plb-table-scroll"><table><thead><tr><th>Well</th><th>Current metadata</th><th>Proposed metadata</th></tr></thead><tbody id="change-rows"></tbody></table></div>
+    <label class="plb-checkbox" id="replacement-label" hidden><input type="checkbox" id="allow-replacement">Replace metadata in the listed occupied wells</label>
+    <label class="plb-checkbox" id="spill-label" hidden><input type="checkbox" id="allow-spill">Allow the listed placements to spill between perimeter and interior</label>
+    <p id="change-error" role="alert"></p>
+    <div class="plb-actions"><button class="plb-button" id="cancel-change" type="button" autofocus>Cancel</button><button class="plb-button plb-button-primary" id="apply-change" type="button">Apply changes</button></div>
+  </dialog>
+  <dialog class="plb-dialog" id="well-edit-dialog" aria-labelledby="well-edit-title">
+    <h2 id="well-edit-title">Edit well</h2><p>Changes apply to this well only. Other replicate labels stay unchanged.</p>
+    <form id="well-edit-form" class="plb-edit-form">
+      <label>Strain<input name="strain"></label><label>Condition<input name="condition"></label>
+      <label>Replicate ID<input name="replicate_id" inputmode="numeric" pattern="[1-9][0-9]*"></label>
+      <label>Role<select name="role"><option value="sample">Sample</option><option value="control">Control</option><option value="blank">Blank</option><option value="unused">Unused</option></select></label>
+      <label>Blank group<input name="blank_group" list="blank-groups"></label>
+      <p class="plb-form-error" role="alert"></p>
+      <div class="plb-actions"><button class="plb-button" type="button" data-close="well-edit-dialog">Cancel</button><button class="plb-button plb-button-primary" type="submit">Review well changes</button></div>
+    </form>
+  </dialog>
+  <dialog class="plb-dialog" id="bulk-edit-dialog" aria-labelledby="bulk-edit-title">
+    <h2 id="bulk-edit-title">Edit selected fields</h2><p>Check the fields to change. Distinct replicate IDs are preserved; setting unused clears them.</p>
+    <form id="bulk-edit-form" class="plb-edit-form">
+      <label class="plb-checkbox"><input type="checkbox" name="change_strain">Change strain</label><input name="strain" aria-label="New strain">
+      <label class="plb-checkbox"><input type="checkbox" name="change_condition">Change condition</label><input name="condition" aria-label="New condition">
+      <label class="plb-checkbox"><input type="checkbox" name="change_role">Change role</label><select name="role" aria-label="New role"><option value="sample">Sample</option><option value="control">Control</option><option value="blank">Blank</option><option value="unused">Unused</option></select>
+      <label class="plb-checkbox"><input type="checkbox" name="change_blank_group">Change blank group</label><input name="blank_group" list="blank-groups" aria-label="New blank group">
+      <p class="plb-form-error" role="alert"></p>
+      <div class="plb-actions"><button class="plb-button" type="button" data-close="bulk-edit-dialog">Cancel</button><button class="plb-button plb-button-primary" type="submit">Review selected changes</button></div>
+    </form>
+  </dialog>
+  <dialog class="plb-dialog" id="resize-dialog" aria-labelledby="resize-title" aria-describedby="resize-summary">
+    <h2 id="resize-title">Change plate size?</h2>
+    <p id="resize-summary"></p>
+    <p id="resize-metadata-note"></p>
+    <ul id="resize-wells" aria-label="Wells with metadata outside the new plate" hidden></ul>
+    <p id="resize-selection-note"></p>
+    <div class="plb-actions">
+      <button class="plb-button" type="button" id="cancel-resize" autofocus>Keep current plate</button>
+      <button class="plb-button plb-button-primary" type="button" id="confirm-resize">Change plate size</button>
+    </div>
+  </dialog>
+</body>
+</html>
