@@ -20,7 +20,8 @@ body.plb-app { margin: 0; background: var(--plb-bg); color: var(--plb-text); fon
 .plb-skip-link:focus { top: 12px; }
 .plb-app main { padding-block: 44px 72px; }
 .plb-header { margin-bottom: 30px; }
-.plb-header h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 700; line-height: 1.04; letter-spacing: -.045em; margin-bottom: 20px; }
+.plb-eyebrow { font: 500 .73rem var(--plb-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--plb-gold); }
+.plb-header h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 700; line-height: 1.04; letter-spacing: -.045em; margin: 15px 0 20px; }
 .plb-header h1 span { color: var(--plb-gold); }
 .plb-header p { color: var(--plb-muted); max-width: 680px; font-size: 1.1rem; }
 .plb-panel { background: var(--plb-panel); border: 1px solid var(--plb-border); border-radius: var(--plb-radius); padding: 28px; box-shadow: 0 24px 80px var(--plb-shadow); }
