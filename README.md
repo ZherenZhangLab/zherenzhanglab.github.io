@@ -13,7 +13,13 @@ division of labour and beyond — for both fundamental discovery and biotechnolo
 Homepage content lives in `index.html`. Its presentation uses `tokens.css`,
 `base.css`, `prototype.css` and `site.css`, alongside the existing styles and
 scripts for the opening sequence, Hero interaction, Research and Lab Journey.
-The Growth Curve Analyser remains in `tools/growth-curve-analyser/`.
+The Tools section links to two independent static applications:
+
+- [Growth Curve Analyser](tools/growth-curve-analyser/)
+- [Plate Layout Builder](tools/plate-layout-builder/)
+
+Each tool keeps its own runtime files under `tools/` and uses the shared website
+tokens for its masthead. Keep tool maintenance separate from homepage styling.
 
 This is a static site with no build command. Preview locally from the repository
 root with `python3 -m http.server 4175 --bind 127.0.0.1`.
